@@ -9,8 +9,13 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 	: SoCustomWidget(QColor(255,255,255),parent), _appMgr(appMgr)
 {
 	setWindowTitle(_appMgr->name());
-	setContentsMargins(0, 0, 0, 0);
+
 	QVBoxLayout* layout = new QVBoxLayout();
+
+	SoCustomWidget* banner = new SoCustomWidget(QColor(200, 200, 200, 100));
+	banner->setFixedHeight(100);
+	layout->addWidget(banner);
+
 	layout->setContentsMargins(0, 0, 0, 0);
 	
 	for (int i = 0; i < _appMgr->groups().size(); i++) {

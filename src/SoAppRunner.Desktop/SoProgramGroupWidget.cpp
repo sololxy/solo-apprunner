@@ -15,7 +15,7 @@ SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* grou
 	if (NULL != _group) {
 
 		QVBoxLayout* layoutMain = new QVBoxLayout();
-		layoutMain->setContentsMargins(0, 0, 0, 0);
+		//layoutMain->setContentsMargins(0, 0, 0, 0);
 
 		QLabel* labelGroup = new QLabel(QString("<b><font size=14 color='#9fe070'>%1</font></b>").arg(_group->name()));
 		layoutMain->addWidget(labelGroup);
