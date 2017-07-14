@@ -3,14 +3,15 @@
 
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QSpacerItem>
 
 SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 	: QWidget(parent), _appMgr(appMgr)
 {
+	setWindowTitle(_appMgr->name());
+	setContentsMargins(0, 0, 0, 0);
 	QVBoxLayout* layout = new QVBoxLayout();
-
-	this->setWindowTitle(_appMgr->name());
-
+	layout->setContentsMargins(0, 0, 0, 0);
 	
 	for (int i = 0; i < _appMgr->groups().size(); i++) {
 		SoProgramGroup* group = _appMgr->groups()[i];
@@ -21,7 +22,8 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 		layout->addWidget(groupWidget);
 	}
 
-	layout->addStretch();
+	QSpacerItem* spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+	layout->addItem(spacer);
 	setLayout(layout);
 
 }

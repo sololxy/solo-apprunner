@@ -4,21 +4,28 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QSpacerItem>
 
 SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* group)
     : QWidget(parent), _group(group)
 {
 
+	setContentsMargins(0, 0, 0, 0);
+
 	if (NULL != _group) {
 
 		QVBoxLayout* layoutMain = new QVBoxLayout();
+		layoutMain->setContentsMargins(0, 0, 0, 0);
+
 		QLabel* labelGroup = new QLabel(QString("<b><font size=16 color='green'>%1</font></b>").arg(_group->name()));
 		layoutMain->addWidget(labelGroup);
 
 		QWidget* widgetMain = new QWidget(this);
+		widgetMain->setContentsMargins(0, 0, 0, 0);
 		layoutMain->addWidget(widgetMain);
 
 		QHBoxLayout* layout = new QHBoxLayout();
+		layout->setContentsMargins(0, 0, 0, 0);
 		widgetMain->setLayout(layout);
 
 		for (int i = 0; i < _group->programs().size(); i++) {
@@ -30,6 +37,9 @@ SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* grou
 			layout->addWidget(programWidget);
 		}
 
+		QSpacerItem* spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+		layout->addItem(spacer);
+		
 		setLayout(layoutMain);
 	}
 
