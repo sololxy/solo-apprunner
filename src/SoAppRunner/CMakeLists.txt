@@ -16,3 +16,4 @@ set(SRCS    "SoProgram.cpp"
 
 add_library(${TARGET_NAME} SHARED  ${INCS} ${SRCS})
 target_link_libraries(${TARGET_NAME} Qt5::Core)
+target_link_libraries(${TARGET_NAME} Qt5::Xml)

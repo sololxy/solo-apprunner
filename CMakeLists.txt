@@ -15,6 +15,7 @@ set(CMAKE_AUTOMOC ON)
 
 # Find the QtWidgets library
 find_package(Qt5Widgets)
+find_package(Qt5Xml)
 
 
 add_subdirectory(src)

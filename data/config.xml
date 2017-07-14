@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AppRunner>
+    <titile name="SoAppRuner Test" />
+
+    <ProgramGroup name="Data Process">
+        <Program name="TOPGRID">
+            <Path>TOPGRID/TOPGRID.exe</Path>
+            <Icon>TOPGRID/TOPGRID.png</Icon>
+            <Desc>遥感数据处理</Desc>
+            <DetailDesc>...</DetailDesc>
+        </Program>
+    </ProgramGroup>
+
+    <ProgramGroup name="航线设计">
+        <Program name="TOPPLAN">
+            <Path>TOPPLAN/TOPPLAN.exe</Path>
+            <Icon>TOPPLAN/TOPPLAN.png</Icon>
+            <Desc>TOPPLAN航线设计</Desc>
+            <DetailDesc>。。。</DetailDesc>
+        </Program>
+    </ProgramGroup>
+
+    <ProgramGroup name="质量检查">
+        <Program name="TOPCHECK">
+            <Path>TOPPPAN/TOPPPAN.exe</Path>
+            <Icon>TOPPPAN/TOPPPAN.png</Icon>
+            <Desc>TOPPPAN航线设计</Desc>
+            <DetailDesc>。。。</DetailDesc>
+        </Program>
+    </ProgramGroup>
+
+
+    <ProgramGroup name="辅助工具">
+        
+    </ProgramGroup>
+
+</AppRunner>

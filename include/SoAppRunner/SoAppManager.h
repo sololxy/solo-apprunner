@@ -5,6 +5,10 @@
 #ifndef SO_APP_MANAGER_H
 #define SO_APP_MANAGER_H
 
+#include <vector>
+
+using namespace std;
+
 #include <SoAppRunner/SoProgramGroup.h>
 
 /** 程序主管理器，单例模式
@@ -15,14 +19,23 @@
 class SO_APPRUNNER_API SoAppManager
 {
 public:
-    SoAppManager* instance();
+    static SoAppManager* instance();
     ~SoAppManager();
 
+    bool open(QString configPath);
+
+    void setName(QString name) { _name = name; }
+    QString name() { return _name; }
+
+    vector<SoProgramGroup*>& groups() { return _groups; };
 
 private:
     SoAppManager();
 
     static SoAppManager* _instance;
+    QString _configPath;
+    QString _name;
+    vector<SoProgramGroup*> _groups;
 };
 
 #endif // SO_APP_MANAGER_H
