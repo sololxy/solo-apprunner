@@ -5,13 +5,13 @@
 #ifndef SO_APP_MANAGER_WIDGET_H
 #define SO_APP_MANAGER_WIDGET_H
 
-#include <QWidget>
+#include <SoAppRunner.Desktop/SoCustomWidget.h>
 
 #include <SoAppRunner/SoAppManager.h>
 #include <SoAppRunner.Desktop/SoAppRunnerDesktopExport.h>
 
 //
-class SO_APPRUNNER_DESKTOP_API SoAppManagerWidget : public QWidget
+class SO_APPRUNNER_DESKTOP_API SoAppManagerWidget : public SoCustomWidget
 {
 	Q_OBJECT
 public:

@@ -5,12 +5,14 @@ SoProgram::SoProgram()
 {
 	_name = "Unknown Program";
 	_path = "/none/test.exe";
+	_web = "https://github.com/sololxy";
 }
 
 SoProgram::SoProgram(QString name) 
 { 
 	_name = name; 
 	_path = "/none/test.exe";
+	_web = "https://github.com/sololxy";
 };
 
 SoProgram::SoProgram(QString name, QString path, QString desc, QString detailDesc, 

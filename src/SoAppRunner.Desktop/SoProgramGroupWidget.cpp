@@ -17,7 +17,7 @@ SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* grou
 		QVBoxLayout* layoutMain = new QVBoxLayout();
 		layoutMain->setContentsMargins(0, 0, 0, 0);
 
-		QLabel* labelGroup = new QLabel(QString("<b><font size=16 color='green'>%1</font></b>").arg(_group->name()));
+		QLabel* labelGroup = new QLabel(QString("<b><font size=14 color='#9fe070'>%1</font></b>").arg(_group->name()));
 		layoutMain->addWidget(labelGroup);
 
 		QWidget* widgetMain = new QWidget(this);
@@ -36,6 +36,8 @@ SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* grou
 			SoProgramWidget* programWidget = new SoProgramWidget(widgetMain, program);
 			layout->addWidget(programWidget);
 		}
+
+		
 
 		QSpacerItem* spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 		layout->addItem(spacer);

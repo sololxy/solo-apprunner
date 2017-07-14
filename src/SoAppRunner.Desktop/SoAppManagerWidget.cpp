@@ -6,7 +6,7 @@
 #include <QSpacerItem>
 
 SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
-	: QWidget(parent), _appMgr(appMgr)
+	: SoCustomWidget(QColor(255,255,255),parent), _appMgr(appMgr)
 {
 	setWindowTitle(_appMgr->name());
 	setContentsMargins(0, 0, 0, 0);

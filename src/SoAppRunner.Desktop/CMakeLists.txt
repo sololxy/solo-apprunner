@@ -3,14 +3,16 @@ set(TARGET_NAME "SoAppRunner.Desktop")
 add_definitions("-DBUILDING_APPRUNNER_DESKTOP_API")
 
 set(INCS    "${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoAppManagerWidget.h"
-            "${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoProgramGroupWidget.h"
-            "${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoProgramWidget.h"
-            "${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoAppRunnerDesktopExport.h"
+			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoProgramGroupWidget.h"
+			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoProgramWidget.h"
+			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoAppRunnerDesktopExport.h"
+			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoCustomWidget.h"
 )
 
 set(SRCS    "SoAppManagerWidget.cpp"
-            "SoProgramGroupWidget.cpp"
-            "SoProgramWidget.cpp"
+			"SoProgramGroupWidget.cpp"
+			"SoProgramWidget.cpp"
+			"SoCustomWidget.cpp"
 )
 
 

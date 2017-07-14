@@ -19,6 +19,9 @@ public:
     virtual ~SoProgramWidget();
 
 
+protected slots:
+	void openProgram();
+
 private:
     SoProgram* _program;
 };
