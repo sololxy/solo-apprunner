@@ -27,7 +27,8 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 		layout->addWidget(groupWidget);
 	}
 
-	QSpacerItem* spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+	QSpacerItem* spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, 
+										  QSizePolicy::Expanding);
 	layout->addItem(spacer);
 	setLayout(layout);
 

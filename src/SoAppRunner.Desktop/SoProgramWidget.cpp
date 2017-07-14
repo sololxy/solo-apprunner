@@ -41,16 +41,19 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 	rightWidget->setLayout(layoutRight);
 	
 	QLabel* nameLabel = new QLabel(rightWidget);
-	nameLabel->setText(QString("<font size=10 color='#9fe070'>%1</font>").arg(_program->name()));
+	nameLabel->setText(QString("<font size=10 color='#9fe070'>%1</font>")
+							 .arg(_program->name()));
 	layoutRight->addWidget(nameLabel);
 
 	QLabel* pathLabel = new QLabel(rightWidget);
-	pathLabel->setText(QString("<font size=8 color='#aaaaaa'>%1</font>").arg(_program->path()));
+	pathLabel->setText(QString("<font size=8 color='#aaaaaa'>%1</font>")
+								.arg(_program->path()));
 	layoutRight->addWidget(pathLabel);
 
 	QLabel* webLabel = new QLabel(rightWidget);
 	webLabel->setOpenExternalLinks(true);
-	webLabel->setText(QString("<a href='https://github.com/sololxy'>Contact US</a>").arg(_program->web()));
+	webLabel->setText(QString("<a href='https://github.com/sololxy'>Contact US</a>")
+							.arg(_program->web()));
 	layoutRight->addWidget(webLabel);
 
 
@@ -71,10 +74,12 @@ SoProgramWidget::~SoProgramWidget()
 
 void SoProgramWidget::openProgram()
 {
-	QString programPath = QCoreApplication::applicationDirPath() + _program->path();
+	QString programPath = QCoreApplication::applicationDirPath() 
+					    + _program->path();
 	QProcess *process = new QProcess(NULL);
 	if (!process->startDetached(programPath)) {
 		QMessageBox::warning(this, tr("AppRunner"),
-			QString("Cann't open program:\n%1").arg(programPath),QMessageBox::Ok);
+							QString("Cann't open program:\n%1").arg(programPath),
+							QMessageBox::Ok);
 	}
 }
