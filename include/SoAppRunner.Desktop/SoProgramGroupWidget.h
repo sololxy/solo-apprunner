@@ -9,7 +9,7 @@
 
 #include <SoAppRunner/SoProgramGroup.h>
 
-#include <SoAppRunner.Desktop/SoAppRunnerDesktopExport.h>
+#include <SoAppRunner.Desktop/SoProgramWidget.h>
 
 //
 class SO_APPRUNNER_DESKTOP_API SoProgramGroupWidget : public QWidget

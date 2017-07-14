@@ -14,6 +14,7 @@ class SO_APPRUNNER_API SoProgram
 {
 public:
 	SoProgram();
+	SoProgram(QString name);
 	SoProgram(QString name, QString path, QString desc, QString detailDesc,
 			  QString icon, QString doc, QString web);
     virtual ~SoProgram();
