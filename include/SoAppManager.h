@@ -5,6 +5,7 @@
 #ifndef SO_APP_MANAGER_H
 #define SO_APP_MANAGER_H
 
+#include <SoAppRunnerExport.h>
 #include <SoProgramGroup.h>
 
 /** 程序主管理器，单例模式
@@ -12,10 +13,10 @@
  * 负责程序组SoProgramGroup，程序SoProgram的管理
  *
  */
-class SoAppManager
+class SO_APPRUNNER_API SoAppManager
 {
 public:
-    static SoAppManager* instance();
+    SoAppManager* instance();
     ~SoAppManager();
 
 
