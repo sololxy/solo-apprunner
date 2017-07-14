@@ -8,7 +8,7 @@
 #include <SoProgram.h>
 
 // 功能相关的几个程序的组合
-class SoProgramGroup
+class SO_APPRUNNER_API SoProgramGroup
 {
 public:
     SoProgramGroup();

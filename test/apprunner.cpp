@@ -1,9 +1,13 @@
 #include <QApplication>
-
+#include <QWidget>
 //#include <SoAppManagerWidgets>
 
 int main(int argn, char** argv)
 {
+    QApplication app(argn,argv);
+    QWidget w;
 
-    return 0;
+    w.show();
+
+    return app.exec();
 }

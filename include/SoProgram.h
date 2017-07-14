@@ -5,8 +5,12 @@
 #ifndef SO_PROGRAM_H
 #define SO_PROGRAM_H
 
+#include <QString>
+
+#include <SoAppRunnerExport.h>
+
 // 单个程序
-class SoProgram
+class SO_APPRUNNER_API SoProgram
 {
 public:
     SoProgram();

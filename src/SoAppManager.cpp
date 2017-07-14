@@ -13,3 +13,12 @@ SoAppManager::~SoAppManager()
 {
     
 }
+
+SoAppManager* SoAppManager::instance()
+{
+	if (NULL == _instance) {
+		_instance = new SoAppManager();
+	}
+
+	return _instance;
+}
