@@ -5,8 +5,7 @@
 #ifndef SO_APP_MANAGER_H
 #define SO_APP_MANAGER_H
 
-#include <SoAppRunnerExport.h>
-#include <SoProgramGroup.h>
+#include <SoAppRunner/SoProgramGroup.h>
 
 /** 程序主管理器，单例模式
  *

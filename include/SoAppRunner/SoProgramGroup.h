@@ -5,7 +5,7 @@
 #ifndef SO_PROGRAM_GROUP_H
 #define SO_PROGRAM_GROUP_H
 
-#include <SoProgram.h>
+#include <SoAppRunner/SoProgram.h>
 
 // 功能相关的几个程序的组合
 class SO_APPRUNNER_API SoProgramGroup

@@ -7,7 +7,7 @@
 
 #include <QString>
 
-#include <SoAppRunnerExport.h>
+#include <SoAppRunner/SoAppRunnerExport.h>
 
 // 单个程序
 class SO_APPRUNNER_API SoProgram

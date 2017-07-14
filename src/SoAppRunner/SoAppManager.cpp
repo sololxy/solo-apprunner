@@ -1,4 +1,4 @@
-#include <SoAppManager.h>
+#include <SoAppRunner/SoAppManager.h>
 
 SoAppManager* SoAppManager::_instance = NULL;
 

@@ -1,4 +1,4 @@
-#include <SoProgramGroup.h>
+#include <SoAppRunner/SoProgramGroup.h>
 
 SoProgramGroup::SoProgramGroup()
 {
