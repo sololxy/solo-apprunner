@@ -1,5 +1,6 @@
 #include <SoAppRunner.Desktop/SoProgramWidget.h>
 #include <SoAppRunner/SoAppManager.h>
+#include <SoAppRunner.Desktop/SoCustomLabel.h>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -10,12 +11,12 @@
 #include <QMessageBox>
 
 SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
-    : QWidget(parent), _program(program)
+    : SoCustomWidget(QColor(0xFF,0xFF,0xFF),parent), _program(program)
 {
 	setContentsMargins(0, 0, 0, 0);
 
 	QHBoxLayout* layout = new QHBoxLayout();
-	layout->setContentsMargins(0, 0, 0, 0);
+	//layout->setContentsMargins(10, 10, 10, 10);
 	
 	// ÉèÖÃicon
 	QWidget* leftWidget = new QWidget(this);
@@ -50,11 +51,10 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 								.arg(_program->path()));
 	layoutRight->addWidget(pathLabel);
 
-	QLabel* webLabel = new QLabel(rightWidget);
+	SoCustomLabel* webLabel = new SoCustomLabel();
 	webLabel->setOpenExternalLinks(true);
-	webLabel->setText(QString("<a href='https://github.com/sololxy'>Contact US</a>")
-							.arg(_program->web()));
-	layoutRight->addWidget(webLabel);
+	webLabel->setText(QString("<a href='https://github.com/sololxy'>Contact US</a>"));
+	layoutRight->addWidget((QWidget*)webLabel);
 
 
 	layoutRight->addStretch();

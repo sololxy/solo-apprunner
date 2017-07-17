@@ -17,9 +17,13 @@ class SO_APPRUNNER_DESKTOP_API SoCustomWidget : public QWidget
 {
     Q_OBJECT
 public:
-	SoCustomWidget(QColor background = QColor(255,255,255), QWidget* parent = NULL);
+	SoCustomWidget(QColor background = QColor(0xEE, 0xEE, 0xEE), QWidget* parent = NULL);
     virtual ~SoCustomWidget();
 
+	void setBackgroundColor(QColor bg);
+
+private:
+	void updateBg();
 
 private:
 	QColor _background;

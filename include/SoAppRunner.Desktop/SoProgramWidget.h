@@ -9,9 +9,10 @@
 
 #include <SoAppRunner/SoProgram.h>
 #include <SoAppRunner.Desktop/SoAppRunnerDesktopExport.h>
+#include <SoAppRunner.Desktop/SoCustomWidget.h>
 
 //
-class SO_APPRUNNER_DESKTOP_API SoProgramWidget : public QWidget
+class SO_APPRUNNER_DESKTOP_API SoProgramWidget : public SoCustomWidget
 {
     Q_OBJECT
 public:

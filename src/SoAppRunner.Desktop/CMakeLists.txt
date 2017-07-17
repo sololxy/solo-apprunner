@@ -7,12 +7,14 @@ set(INCS    "${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoAppManagerWidget.h"
 			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoProgramWidget.h"
 			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoAppRunnerDesktopExport.h"
 			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoCustomWidget.h"
+			"${CMAKE_SOURCE_DIR}/include/${TARGET_NAME}/SoCustomLabel.h"
 )
 
 set(SRCS    "SoAppManagerWidget.cpp"
 			"SoProgramGroupWidget.cpp"
 			"SoProgramWidget.cpp"
 			"SoCustomWidget.cpp"
+			"SoCustomLabel.cpp"
 )
 
 

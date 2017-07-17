@@ -6,14 +6,14 @@
 #include <QSpacerItem>
 
 SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
-	: SoCustomWidget(QColor(255,255,255),parent), _appMgr(appMgr)
+	: SoCustomWidget(QColor(0x00, 0x00, 0x00),parent), _appMgr(appMgr)
 {
 	setWindowTitle(_appMgr->name());
 
 	QVBoxLayout* layout = new QVBoxLayout();
 
-	SoCustomWidget* banner = new SoCustomWidget(QColor(200, 200, 200, 100));
-	banner->setFixedHeight(100);
+	SoCustomWidget* banner = new SoCustomWidget(QColor(255, 255, 255, 255));
+	banner->setFixedHeight(200);
 	layout->addWidget(banner);
 
 	layout->setContentsMargins(0, 0, 0, 0);

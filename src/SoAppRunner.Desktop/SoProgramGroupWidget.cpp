@@ -7,7 +7,7 @@
 #include <QSpacerItem>
 
 SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* group)
-    : QWidget(parent), _group(group)
+    : SoCustomWidget(QColor(0xDD, 0xDD, 0xDD),parent), _group(group)
 {
 
 	setContentsMargins(0, 0, 0, 0);

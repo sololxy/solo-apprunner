@@ -9,8 +9,20 @@
 SoCustomWidget::SoCustomWidget(QColor background, QWidget* parent)
     : QWidget(parent), _background(background)
 {
-	setContentsMargins(0, 0, 0, 0);
 
+	updateBg();
+}
+
+
+
+
+SoCustomWidget::~SoCustomWidget()
+{
+
+}
+
+void SoCustomWidget::updateBg()
+{
 	QPalette pal = palette();
 
 	pal.setColor(QPalette::Background, _background);
@@ -18,8 +30,10 @@ SoCustomWidget::SoCustomWidget(QColor background, QWidget* parent)
 	setPalette(pal);
 }
 
-
-SoCustomWidget::~SoCustomWidget()
+void SoCustomWidget::setBackgroundColor(QColor bg)
 {
-
+	_background = bg;
+	updateBg();
 }
+
+
