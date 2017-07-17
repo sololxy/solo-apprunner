@@ -42,18 +42,18 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 	rightWidget->setLayout(layoutRight);
 	
 	QLabel* nameLabel = new QLabel(rightWidget);
-	nameLabel->setText(QString("<font size=10 color='#9fe070'>%1</font>")
+	nameLabel->setText(QString("<font size=5 color='green'>%1</font>")
 							 .arg(_program->name()));
 	layoutRight->addWidget(nameLabel);
 
 	QLabel* pathLabel = new QLabel(rightWidget);
-	pathLabel->setText(QString("<font size=8 color='#aaaaaa'>%1</font>")
+	pathLabel->setText(QString("<font size=4>%1</font>")
 								.arg(_program->path()));
 	layoutRight->addWidget(pathLabel);
 
 	SoCustomLabel* webLabel = new SoCustomLabel();
 	webLabel->setOpenExternalLinks(true);
-	webLabel->setText(QString("<a href='https://github.com/sololxy'>Contact US</a>"));
+	webLabel->setText(QString("<font size=4><a href='https://github.com/sololxy'>Contact US</a></font>"));
 	layoutRight->addWidget((QWidget*)webLabel);
 
 
