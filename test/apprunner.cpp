@@ -9,7 +9,7 @@ int main(int argn, char** argv)
 {
     QApplication app(argn,argv);
 
-	QString configPath = QCoreApplication::applicationDirPath() + "/config/config.xml";
+	QString configPath = QCoreApplication::applicationDirPath() + "/config/app.config";
 
 	if (false == SoAppManager::instance()->open(configPath))
 		exit(1);
