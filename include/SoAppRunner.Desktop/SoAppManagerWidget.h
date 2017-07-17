@@ -5,13 +5,16 @@
 #ifndef SO_APP_MANAGER_WIDGET_H
 #define SO_APP_MANAGER_WIDGET_H
 
+#include <QScrollArea>
+#include <QFrame>
+
 #include <SoAppRunner.Desktop/SoCustomWidget.h>
 
 #include <SoAppRunner/SoAppManager.h>
 #include <SoAppRunner.Desktop/SoAppRunnerDesktopExport.h>
 
 //
-class SO_APPRUNNER_DESKTOP_API SoAppManagerWidget : public SoCustomWidget
+class SO_APPRUNNER_DESKTOP_API SoAppManagerWidget : public QScrollArea
 {
 	Q_OBJECT
 public:
@@ -21,6 +24,7 @@ public:
 
 private:
 	SoAppManager* _appMgr;
+	QScrollArea* _scrollArea;
 };
 
 #endif // SO_APP_MANAGER_WIDGET_H

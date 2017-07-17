@@ -9,7 +9,7 @@
 SoCustomWidget::SoCustomWidget(QColor background, QWidget* parent)
     : QWidget(parent), _background(background)
 {
-
+	setContentsMargins(0, 0, 0, 0);
 	updateBg();
 }
 

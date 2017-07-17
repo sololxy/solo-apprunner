@@ -17,7 +17,7 @@ int main(int argn, char** argv)
 
 	SoAppManagerWidget widget(NULL, SoAppManager::instance());
 
-	widget.show();
+	widget.showMaximized();
 
     return app.exec();
 }

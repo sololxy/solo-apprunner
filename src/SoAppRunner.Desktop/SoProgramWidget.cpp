@@ -35,7 +35,7 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 	layout->addWidget(leftWidget);
 
 	QWidget* rightWidget = new QWidget(this);
-	rightWidget->setFixedWidth(300);
+	rightWidget->setMinimumWidth(300);
 	rightWidget->setContentsMargins(0, 0, 0, 0);
 	QVBoxLayout* layoutRight = new QVBoxLayout();
 	layoutRight->setContentsMargins(0, 0, 0, 0);
@@ -60,7 +60,7 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 	layoutRight->addStretch();
 	layout->addWidget(rightWidget);
 
-	//layout->addStretch();
+	layout->addStretch();
 	setLayout(layout);
 
 	connect(iconWidget, SIGNAL(pressed()), this, SLOT(openProgram()));
