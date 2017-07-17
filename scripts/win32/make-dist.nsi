@@ -52,7 +52,6 @@ directory, including a home folder or portable device. Please run as Administrat
 !define MUI_FINISHPAGE_RUN_FUNCTION ShowInstallFolder
 
 # Pages to show
-
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 
@@ -68,7 +67,7 @@ directory, including a home folder or portable device. Please run as Administrat
 Section "Dummy Section" SecDummy
     SetOutPath $INSTDIR
     #File /a /r "${APP_NAME}\*"
-    File /a  ".\*.exe"
+    File /a /r "*.exe"
     File /a /r "*.dll"
 	CreateDirectory $INSTDIR\config
     File "/oname=config\config.xml" ".\config\config.xml"
@@ -105,7 +104,7 @@ Section "uninstall"
 	Delete "$INSTDIR\*.dll"
     Delete "$INSTDIR\uninstall.exe"
 	Delete "$INSTDIR\config\*"
-	
+
 	RMDir "$INSTDIR\config"
     SetOutPath $DESKTOP
     RMDir "$INSTDIR"
@@ -115,8 +114,10 @@ SectionEnd
 # Helper function to create Start Menu folder and shortcuts
 Function AddToStartMenu
     CreateDirectory "$SMPROGRAMS\${AppStartMenuFolder}"
-    CreateShortcut "$SMPROGRAMS\${AppStartMenuFolder}\${APP_NAME}-${VERSION}.lnk" "$INSTDIR\${APP_NAME}.lnk" "" "" "" "" "" "The SoloTech"
-    CreateShortcut "$SMPROGRAMS\${AppStartMenuFolder}\Uninstall-${APP_NAME}-${VERSION}.lnk" "$instdir\Uninstall.exe"
+    CreateShortcut "$SMPROGRAMS\${AppStartMenuFolder}\${APP_NAME}-${VERSION}.lnk"\
+                   "$INSTDIR\${APP_NAME}.lnk" "" "" "" "" "" "The SoloTech"
+    CreateShortcut "$SMPROGRAMS\${AppStartMenuFolder}\Uninstall-${APP_NAME}-${VERSION}.lnk"\
+                   "$instdir\Uninstall.exe"
 FunctionEnd
 
 # Opens the installation folder
