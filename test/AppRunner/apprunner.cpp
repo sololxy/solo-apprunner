@@ -12,11 +12,12 @@ int main(int argn, char** argv)
 	QString configPath = QCoreApplication::applicationDirPath() 
 						 + "/config/app.config";
 
-	if (false == SoAppManager::instance()->open(configPath))
-		exit(1);
+	QString appName = "Test AppRunner";
+	if (true == SoAppManager::instance()->open(configPath))
+		appName = SoAppManager::instance()->name();
 
 	SoAppManagerWidget widget(NULL, SoAppManager::instance());
-
+	widget.setWindowTitle(appName);
 	widget.showMaximized();
 
     return app.exec();

@@ -1,5 +1,6 @@
 ﻿#include <SoAppRunner/SoAppManager.h>
 
+#include <QFile>
 #include <QXmlStreamReader>
 #include <QXmlStreamAttributes>
 
@@ -32,36 +33,81 @@ SoAppManager* SoAppManager::instance()
 	return _instance;
 }
 
-bool SoAppManager::open(QString configPath)
+void SoAppManager::readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group)
 {
-	/*
-	QXmlStreamReader xmlReader(configPath);
-	while (!xmlReader.atEnd() && !xmlReader.hasError())
+
+	while (!xmlReader.atEnd())
 	{
 		xmlReader.readNext();
-		if (xmlReader.isStartElement())
-		{
+		SoProgram* program = NULL;
+		QString programName;
+		if (xmlReader.name() == "Program") {
+			program = new SoProgram();
+			QXmlStreamAttributes attributesProgram = xmlReader.attributes();
+			QString programName;
+			if (attributesProgram.hasAttribute("name")) {
+				programName = attributesProgram.value("name").toString();
+				program->setName(programName);
+			}
 
-			if (xmlReader.name() == "titile")
-			{
-				setName(xmlReader.readElementText());
+			if (NULL != group)
+				group->programs().push_back(program);
 
-			}else if(xmlReader.name() == "ProgramGroup") {
+
+		}
+	}
+}
+
+bool SoAppManager::open(QString configPath)
+{
+	
+	QFile xmlFile(configPath);
+
+	if (!xmlFile.open(QIODevice::Text|QIODevice::ReadOnly))
+		return false;
+
+	QXmlStreamReader xmlReader(&xmlFile);
+
+	// 读ProgramGroup and Title
+	while (!xmlReader.atEnd())
+	{
+		xmlReader.readNext();		
+
+		SoProgramGroup* group = NULL;
+		
+
+		if (xmlReader.isStartElement()) {
+
+			if (xmlReader.name() == "AppRunner") {
 
 				QXmlStreamAttributes attributes = xmlReader.attributes();
-				QString groupName;
-				if (attributes.hasAttribute("name"))
-					groupName = attributes.value("id").toString();
+				QString appName;
+				if (attributes.hasAttribute("name")) {
+					appName = attributes.value("name").toString();
+					setName(appName);
+				}
+			}
 
-				//if (reader.name() == "Number")
+			QString groupName;
+			if (xmlReader.name() == "ProgramGroup") {
+				group = new SoProgramGroup();
+				QXmlStreamAttributes attributesGroup = xmlReader.attributes();
 
+				if (attributesGroup.hasAttribute("name")) {
+					groupName = attributesGroup.value("name").toString();
+					group->setName(groupName);
+				}
+
+				groups().push_back(group);
+				readProgram(xmlReader, group);
 			}
 		}
-
 	}
-	*/
 
-	SoProgramGroup * group2 = new SoProgramGroup(QStringLiteral("航线设计"));
+	xmlFile.close();
+	
+
+	/*SoProgramGroup * group2 = new SoProgramGroup(QStringLiteral("航线设计"));
 	SoProgram *program4 = new SoProgram("program4");
 	SoProgram *program5 = new SoProgram("program5");
 	group2->programs().push_back(program4);
@@ -82,7 +128,7 @@ bool SoAppManager::open(QString configPath)
 	group1->programs().push_back(program3);
 	_groups.push_back(group1);
 
-	
+
 	SoProgramGroup * group5 = new SoProgramGroup(QStringLiteral("视频处理"));
 	SoProgram *program8 = new SoProgram("TOPVideo");
 	group5->programs().push_back(program8);
@@ -91,7 +137,7 @@ bool SoAppManager::open(QString configPath)
 	SoProgramGroup * group3 = new SoProgramGroup(QStringLiteral("辅助工具"));
 	SoProgram *program6 = new SoProgram("Data Checker");
 	group3->programs().push_back(program6);
-	_groups.push_back(group3);
+	_groups.push_back(group3);*/
 
 	return true;
 }

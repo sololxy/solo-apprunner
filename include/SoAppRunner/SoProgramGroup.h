@@ -21,6 +21,7 @@ public:
 
     // 程序组名
     QString name() { return _name; };
+	void setName(QString name) { _name = name; }
     vector<SoProgram*>& programs() { return _programs; };
 
 private:

@@ -7,9 +7,13 @@
 
 #include <vector>
 
+#include <QFile>
+#include <QXmlStreamReader>
+
 using namespace std;
 
 #include <SoAppRunner/SoProgramGroup.h>
+
 
 /** 程序主管理器，单例模式
  *
@@ -28,6 +32,9 @@ public:
     QString name() { return _name; }
 
     vector<SoProgramGroup*>& groups() { return _groups; };
+
+private:
+	void readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group);
 
 private:
     SoAppManager();

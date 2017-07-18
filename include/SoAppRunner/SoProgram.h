@@ -22,6 +22,7 @@ public:
 
 	// 程序名
 	QString name() { return _name; };
+	void setName(QString name) { _name = name; }
 
     // 程序路径，相对目录
 	QString path() { return _path; };
