@@ -1,6 +1,10 @@
 set(TARGET_NAME "apprunner")
 
 set(SRCS    "apprunner.cpp"
+            "MainWindow.h"
+            "MainWindow.cpp"
+            "BannerWidget.cpp"
+            "BannerWidget.h"
 )
 
 

@@ -1,9 +1,7 @@
 #include <QCoreApplication>
 #include <QApplication>
-#include <QWidget>
 
-#include <SoAppRunner/SoAppManager.h>
-#include <SoAppRunner.Desktop/SoAppManagerWidget.h>
+#include "MainWindow.h"
 
 int main(int argn, char** argv)
 {
@@ -16,9 +14,11 @@ int main(int argn, char** argv)
     if (true == SoAppManager::instance()->open(configPath))
         appName = SoAppManager::instance()->name();
 
-    SoAppManagerWidget widget(NULL, SoAppManager::instance());
-    widget.setWindowTitle(appName);
-    widget.showMaximized();
+
+	MainWindow mw;
+	
+	mw.setWindowTitle(appName);
+	mw.showMaximized();
 
     return app.exec();
 }

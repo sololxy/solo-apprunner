@@ -15,11 +15,6 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 
 	QVBoxLayout* layout = new QVBoxLayout();
 
-	SoCustomWidget* banner = new SoCustomWidget(QColor(255, 255, 255, 255));
-	banner->setFixedHeight(100);
-	layout->addWidget(banner);
-	setContentsMargins(0, 0, 0, 0);
-	layout->setContentsMargins(0,0,0,0);
 
 	QVBoxLayout* layoutGroup = new QVBoxLayout();
 	layoutGroup->setContentsMargins(0,0,0,0);
