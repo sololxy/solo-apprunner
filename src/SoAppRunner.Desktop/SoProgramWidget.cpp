@@ -42,12 +42,12 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
     rightWidget->setLayout(layoutRight);
     
     QLabel* nameLabel = new QLabel(rightWidget);
-    nameLabel->setText(QString("<font size=5 color='green'>%1</font>")
+    nameLabel->setText(QString("<font size=5 color='green'>Name:%1</font>")
                              .arg(_program->name()));
     layoutRight->addWidget(nameLabel);
 
     QLabel* descLabel = new QLabel(rightWidget);
-    descLabel->setText(QString("<font size=4 color='green'>%1</font>")
+    descLabel->setText(QString("<font size=4 color='green'>Desc:%1</font>")
                                 .arg(_program->desc()));
     layoutRight->addWidget(descLabel);
 

@@ -14,7 +14,7 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 	QWidget* mainWindow = new QWidget(this);
 
 	QVBoxLayout* layout = new QVBoxLayout();
-
+	layout->setContentsMargins(0, 0, 0, 0);
 
 	QVBoxLayout* layoutGroup = new QVBoxLayout();
 	layoutGroup->setContentsMargins(0,0,0,0);

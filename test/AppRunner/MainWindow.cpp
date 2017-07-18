@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent)
 	centralWidget->setLayout(layout);
 
 	setCentralWidget(centralWidget);
+	this->layout()->setContentsMargins(0, 0, 0, 0);
 }
 
 MainWindow::~MainWindow()

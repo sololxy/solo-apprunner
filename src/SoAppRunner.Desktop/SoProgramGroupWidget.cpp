@@ -11,6 +11,7 @@ SoProgramGroupWidget::SoProgramGroupWidget(QWidget* parent, SoProgramGroup* grou
 {
 
 	setContentsMargins(0, 0, 0, 0);
+	
 
 	if (NULL != _group) {
 

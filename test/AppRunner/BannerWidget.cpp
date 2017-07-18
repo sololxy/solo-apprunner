@@ -18,6 +18,8 @@ BannerWidget::BannerWidget(QWidget* parent): SoCustomWidget(QColor(255, 255, 255
 	
 	layout->setContentsMargins(0, 0, 0, 0);
 	setLayout(layout);
+
+	
 }
 
 BannerWidget::~BannerWidget()

@@ -48,20 +48,42 @@ SoProgram* SoAppManager::readProgram(QXmlStreamReader& xmlReader, SoProgramGroup
 		xmlReader.readNext();
 
 		if (xmlReader.isStartElement()) {
+			
 			QString path, icon, desc, detailDesc,doc,web;
 
-			if (xmlReader.name() == "Path")
-				path = xmlReader.readElementText();
-			else if (xmlReader.name() == "Icon")
-				icon = xmlReader.readElementText();
-			else if (xmlReader.name() == "Desc")
-				desc = xmlReader.readElementText();
-			else if (xmlReader.name() == "DetailDesc")
-				detailDesc = xmlReader.readElementText();
-			else if (xmlReader.name() == "Doc")
-				doc = xmlReader.readElementText();
-			else if (xmlReader.name() == "Web")
-				web = xmlReader.readElementText();
+			while (!xmlReader.atEnd()) {
+				xmlReader.readNext();
+				if (xmlReader.isStartElement()) {
+					if (xmlReader.name() == "Path")
+						path = xmlReader.readElementText();
+					else if (xmlReader.name() == "Icon")
+						icon = xmlReader.readElementText();
+					else if (xmlReader.name() == "Desc")
+						desc = xmlReader.readElementText();
+					else if (xmlReader.name() == "DetailDesc")
+						detailDesc = xmlReader.readElementText();
+					else if (xmlReader.name() == "Doc")
+						doc = xmlReader.readElementText();
+					else if (xmlReader.name() == "Web")
+						web = xmlReader.readElementText();
+				}
+
+				if (xmlReader.isEndElement()) {
+					if (xmlReader.name() == "Path")
+						continue;
+					else if (xmlReader.name() == "Icon")
+						continue;
+					else if (xmlReader.name() == "Desc")
+						continue;
+					else if (xmlReader.name() == "DetailDesc")
+						continue;
+					else if (xmlReader.name() == "Doc")
+						continue;
+					else if (xmlReader.name() == "Web")
+						continue;
+					else break;
+				}
+			}
 
 			program->setPath(path);
 			program->setIcon(icon);
