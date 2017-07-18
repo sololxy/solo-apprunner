@@ -6,7 +6,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
-//#include <QProcess>
+#include <QProcess>
 #include <QCoreApplication>
 #include <QMessageBox>
 
@@ -46,10 +46,10 @@ SoProgramWidget::SoProgramWidget(QWidget* parent, SoProgram* program)
 							 .arg(_program->name()));
 	layoutRight->addWidget(nameLabel);
 
-	QLabel* pathLabel = new QLabel(rightWidget);
-	pathLabel->setText(QString("<font size=4>%1</font>")
-								.arg(_program->path()));
-	layoutRight->addWidget(pathLabel);
+	QLabel* descLabel = new QLabel(rightWidget);
+	descLabel->setText(QString("<font size=4 color='green'>%1</font>")
+								.arg(_program->desc()));
+	layoutRight->addWidget(descLabel);
 
 	SoCustomLabel* webLabel = new SoCustomLabel();
 	webLabel->setOpenExternalLinks(true);
@@ -77,10 +77,10 @@ void SoProgramWidget::openProgram()
 {
 	QString programPath = QCoreApplication::applicationDirPath() 
 					    + _program->path();
-	/*QProcess *process = new QProcess(NULL);
+	QProcess *process = new QProcess(NULL);
 	if (!process->startDetached(programPath)) {
 		QMessageBox::warning(this, tr("AppRunner"),
 							QString("Cann't open program:\n%1").arg(programPath),
 							QMessageBox::Ok);
-	}*/
+	}
 }

@@ -26,22 +26,27 @@ public:
 
     // 程序路径，相对目录
 	QString path() { return _path; };
+	void setPath(QString path) { _path = path; }
 
     // 程序简要描述
     QString desc() { return _desc; };
+	void setDesc(QString desc) { _desc = desc; }
 
     // 程序详细介绍
     QString detailDesc() { return detailDesc(); };
+	void setDetailDesc(QString detailDesc) { _detailDesc = detailDesc; }
 
     // 程序icon,png格式 120x120 pix
     QString icon() { return _icon; };
+	void setIcon(QString icon) { _icon = icon; }
 
     // 程序文档位置，相对目录或网址
     QString doc() { return _doc; };
+	void setDoc(QString doc) { _doc = doc; }
 
     // 程序网址
     QString web() { return _web; };
-
+	void setWeb(QString web) { _web = web; }
 private:
 	QString _name;
     QString _path;

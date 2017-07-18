@@ -34,7 +34,8 @@ public:
     vector<SoProgramGroup*>& groups() { return _groups; };
 
 private:
-	void readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group);
+	SoProgramGroup* readProgramGroup(QXmlStreamReader& xmlReader);
+	SoProgram* readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group);
 
 private:
     SoAppManager();

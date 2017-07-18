@@ -33,29 +33,87 @@ SoAppManager* SoAppManager::instance()
 	return _instance;
 }
 
-void SoAppManager::readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group)
+SoProgram* SoAppManager::readProgram(QXmlStreamReader& xmlReader, SoProgramGroup* group)
 {
+	SoProgram* program = new SoProgram();
+	QString programName;
+	QXmlStreamAttributes attributesProgram = xmlReader.attributes();
 
-	while (!xmlReader.atEnd())
-	{
+	if (attributesProgram.hasAttribute("name")) {
+		programName = attributesProgram.value("name").toString();
+		program->setName(programName);
+	}
+
+	while (!xmlReader.atEnd()) {
 		xmlReader.readNext();
-		SoProgram* program = NULL;
-		QString programName;
-		if (xmlReader.name() == "Program") {
-			program = new SoProgram();
-			QXmlStreamAttributes attributesProgram = xmlReader.attributes();
-			QString programName;
-			if (attributesProgram.hasAttribute("name")) {
-				programName = attributesProgram.value("name").toString();
-				program->setName(programName);
-			}
 
-			if (NULL != group)
-				group->programs().push_back(program);
+		if (xmlReader.isStartElement()) {
+			QString path, icon, desc, detailDesc,doc,web;
 
+			if (xmlReader.name() == "Path")
+				path = xmlReader.readElementText();
+			else if (xmlReader.name() == "Icon")
+				icon = xmlReader.readElementText();
+			else if (xmlReader.name() == "Desc")
+				desc = xmlReader.readElementText();
+			else if (xmlReader.name() == "DetailDesc")
+				detailDesc = xmlReader.readElementText();
+			else if (xmlReader.name() == "Doc")
+				doc = xmlReader.readElementText();
+			else if (xmlReader.name() == "Web")
+				web = xmlReader.readElementText();
+
+			program->setPath(path);
+			program->setIcon(icon);
+			program->setDesc(desc);
+			program->setDetailDesc(detailDesc);
+			program->setDoc(doc);
+			program->setWeb(web);
 
 		}
+
+
+		if (xmlReader.isEndElement()) {
+			if (xmlReader.name() == "Program") {
+				break;
+			}
+		}
 	}
+
+	return program;
+
+}
+
+SoProgramGroup* SoAppManager::readProgramGroup(QXmlStreamReader& xmlReader)
+{
+	QString groupName;
+	SoProgramGroup* group = new SoProgramGroup();
+	QXmlStreamAttributes attributesGroup = xmlReader.attributes();
+
+	if (attributesGroup.hasAttribute("name")) {
+		groupName = attributesGroup.value("name").toString();
+		group->setName(groupName);
+	}
+
+	while (!xmlReader.atEnd()) {
+		xmlReader.readNext();
+
+		if (xmlReader.isStartElement()) {
+			if (xmlReader.name() == "Program") {
+				SoProgram* program = readProgram(xmlReader, group);
+				group->programs().push_back(program);
+			}
+		}
+
+		if (xmlReader.isEndElement()) {
+			if (xmlReader.name() == "ProgramGroup") {
+				break;
+			}
+		}
+
+	}
+
+	return group;
 }
 
 bool SoAppManager::open(QString configPath)
@@ -73,9 +131,6 @@ bool SoAppManager::open(QString configPath)
 	{
 		xmlReader.readNext();		
 
-		SoProgramGroup* group = NULL;
-		
-
 		if (xmlReader.isStartElement()) {
 
 			if (xmlReader.name() == "AppRunner") {
@@ -90,18 +145,13 @@ bool SoAppManager::open(QString configPath)
 
 			QString groupName;
 			if (xmlReader.name() == "ProgramGroup") {
-				group = new SoProgramGroup();
-				QXmlStreamAttributes attributesGroup = xmlReader.attributes();
-
-				if (attributesGroup.hasAttribute("name")) {
-					groupName = attributesGroup.value("name").toString();
-					group->setName(groupName);
-				}
-
-				groups().push_back(group);
-				readProgram(xmlReader, group);
+				SoProgramGroup* group = readProgramGroup(xmlReader);
+				this->groups().push_back(group);
 			}
 		}
+
+
+		
 	}
 
 	xmlFile.close();

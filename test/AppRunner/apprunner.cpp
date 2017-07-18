@@ -9,16 +9,16 @@ int main(int argn, char** argv)
 {
     QApplication app(argn,argv);
 
-	QString configPath = QCoreApplication::applicationDirPath() 
-						 + "/config/app.config";
+    QString configPath = QCoreApplication::applicationDirPath() 
+                         + "/config/app.config";
 
-	QString appName = "Test AppRunner";
-	if (true == SoAppManager::instance()->open(configPath))
-		appName = SoAppManager::instance()->name();
+    QString appName = "Test AppRunner";
+    if (true == SoAppManager::instance()->open(configPath))
+        appName = SoAppManager::instance()->name();
 
-	SoAppManagerWidget widget(NULL, SoAppManager::instance());
-	widget.setWindowTitle(appName);
-	widget.showMaximized();
+    SoAppManagerWidget widget(NULL, SoAppManager::instance());
+    widget.setWindowTitle(appName);
+    widget.showMaximized();
 
     return app.exec();
 }
