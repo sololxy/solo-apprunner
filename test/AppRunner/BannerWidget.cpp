@@ -19,7 +19,11 @@ BannerWidget::BannerWidget(QWidget* parent): SoCustomWidget(QColor(255, 255, 255
 	layout->setContentsMargins(0, 0, 0, 0);
 	setLayout(layout);
 
-	
+#ifdef DEBUG_LAYOUT        
+        setStyleSheet("border:1px solid red");
+#endif
+        
+        
 }
 
 BannerWidget::~BannerWidget()
