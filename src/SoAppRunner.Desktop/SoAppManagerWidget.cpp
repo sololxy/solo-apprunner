@@ -38,6 +38,10 @@ SoAppManagerWidget::SoAppManagerWidget(QWidget* parent, SoAppManager* appMgr)
 
 	this->setWidget(mainWindow);
 	this->setWidgetResizable(true);
+
+#ifdef DEBUG_LAYOUT        
+        setStyleSheet("border:1px solid red");
+#endif        
 }
 
 
